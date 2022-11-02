@@ -1,5 +1,5 @@
 .gradient-custom-2 {
-    background: linear-gradient(180deg, #d92200, #ff8731);
+    background: linear-gradient(180deg, #161616, #383838);
 }
 
 @media (min-width: 768px) {
@@ -17,7 +17,7 @@
 
 .contlogo {
     width: 100%;
-    background: linear-gradient(180deg, #d92200, #ff8731);
+    background: linear-gradient(180deg, #161616, #383838);
     border-radius: 0 0 60px ;
     text-align: center;
     padding: 30px 10px 10px 10px;
