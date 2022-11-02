@@ -1,0 +1,114 @@
+<div>
+  <div *ngIf="itemsToOrder.length > 0" class="cont_agregar">
+    <div class="p-2">
+      <h4 style="color: #0d6efd;">Agregar al Pedido</h4>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of itemsToOrder">
+        <div>
+          <div class="cont_tit_cant">
+            <div class="cartilla-item__name">
+              {{ item.item.title }} <span style="color: var(--bs-list-group-color)"><strong> x {{ item.quantity }}</strong></span>
+            </div>
+            <div class="btns">
+              <button class="btn btn-outline-danger btn-sm" (click)="removeItemFromOrder(item)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          <p class="cartilla-item__price">{{item.item.price | currency}}</p>
+        </div>
+      </li>
+    </ul>
+    <div style="text-align:right; margin-right: 15px" class="pt-2">
+      <button type="button" class="btn btn-primary btn-sm" (click)="order()">Ordenar</button>
+    </div>
+  </div>
+
+  <div class="tu-pedido">
+    <div class="p-2">
+      <h4 style="color:var(--color-primary);">Tu Pedido</h4>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of itemsOredered">
+        <div>
+          <div class="cont_tit_cant">
+            <div class="cartilla-item__name">
+              {{ item.item.title }} <span style="color: var(--bs-list-group-color)"><strong> x {{ item.quantity
+                  }}</strong></span>
+            </div>
+            <div class="btns" *ngIf="item.itemStateId == 1">
+              <button class="btn btn-outline-danger btn-sm" (click)="removeItemFromOrder(item)">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </div>
+          <div>
+            <span *ngIf="item.itemStateId == 1" style="color: rgb(194, 191, 17)">
+              <i class="fa fa-clock-o"></i>
+              Solicitado
+            </span>
+            <span *ngIf="item.itemStateId == 2" style="color: #00bcd4">
+              <i class="fa fa-spinner fa-spin"></i>
+              En Preparación
+            </span>
+            <span *ngIf="item.itemStateId == 3" style="color: rgb(15, 190, 38)">
+              <i class="fa fa-check-circle"></i>
+              Listo
+            </span>
+            <span *ngIf="item.itemStateId == 4" style="color: rgb(78, 78, 78)">
+              <i class="fa fa-cutlery"></i>
+              Entregado
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div style="text-align:right;" class="px-2">
+    <button type="button" class="btn btn-primary btn-sm" (click)="cuenta()"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>&nbsp; Cuenta</button>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table table_ticket">
+    <thead>
+      <tr>
+        <th>Cant.</th>
+        <th>Detalle</th>
+        <th>Precio</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of itemsOredered">
+        <td>
+          {{ item.quantity }}  
+        </td>
+        <td>
+          {{ item.item.title }}
+        </td>
+        <td style="text-align: right;">
+          {{ item.item.price | currency }}
+        </td>
+        <td style="text-align: right;">
+          {{ item.item.price * item.quantity | currency }}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3" style="text-align: right;">
+          <strong>Total</strong>
+        </td>
+        <td>
+          <strong>{{ totalPriceOrder | currency }}</strong>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div style="display: flex; justify-content: space-evenly;">
+    <button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-money" aria-hidden="true"></i> Efectivo</button>
+    <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-credit-card" aria-hidden="true"></i> Mercado Pago</button>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<app-headeropti></app-headeropti>
+
+  <div class="contbuttons">
+    <div>
+      <button type="button" class="btn btn-outline-danger btn-sm" [ngClass]="{'btn-selected': selectedTab == 'lista'}"
+        (click)="openLista()">Pedidos</button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-outline-danger btn-sm" [ngClass]="{'btn-selected': selectedTab == 'carta'}"
+        (click)="openCarta()">Carta</button>
+    </div>
+    <div>
+      <button type="button" class="btn btn-outline-danger btn-sm" [ngClass]="{'btn-selected': selectedTab == 'notidicaciones'}"
+        (click)="openNotifications()">Notificaciones</button>
+    </div>
+  </div>
+
+<app-cartilla-menu [hidden]="selectedTab != 'carta'"></app-cartilla-menu>
+<app-cartilla-carrito [hidden]="selectedTab != 'lista'"></app-cartilla-carrito>
+<app-notificaciones [hidden]="selectedTab != 'notificaciones'"></app-notificaciones>

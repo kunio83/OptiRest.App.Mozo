@@ -1,0 +1,11 @@
+.contbuttons{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  position: sticky;
+  top: 50px;
+  z-index: 9;
+  background: white;
+  height: 50px;
+}
+

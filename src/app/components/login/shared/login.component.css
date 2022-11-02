@@ -1,0 +1,43 @@
+.gradient-custom-2 {
+    background: linear-gradient(180deg, #d92200, #ff8731);
+}
+
+@media (min-width: 768px) {
+    .gradient-form {
+        height: 100vh !important;
+    }
+}
+
+@media (min-width: 769px) {
+    .gradient-custom-2 {
+        border-top-right-radius: .3rem;
+        border-bottom-right-radius: .3rem;
+    }
+}
+
+.contlogo {
+    width: 100%;
+    background: linear-gradient(180deg, #d92200, #ff8731);
+    border-radius: 0 0 60px ;
+    text-align: center;
+    padding: 30px 10px 10px 10px;
+    animation-name: radanim;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+}	
+
+.contlogo img {
+    width: 150px;
+}
+
+.slogan{
+    color: #fff;
+    font-family: 'Poiret One', sans-serif;
+    font-size: 28px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+@keyframes radanim {
+    0% {border-radius: 0px}
+  }

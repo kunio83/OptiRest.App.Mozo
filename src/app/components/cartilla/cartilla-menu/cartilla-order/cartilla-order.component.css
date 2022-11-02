@@ -1,0 +1,11 @@
+.cartilla-order-container{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  height: 10%;
+  background-color: antiquewhite;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  padding: 10px;
+}

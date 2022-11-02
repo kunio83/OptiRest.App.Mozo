@@ -1,0 +1,39 @@
+<div class="h-100">
+
+  <div class="contlogo">
+    <img src="../../../assets/log400.png" alt="logo" class="logo">
+    <p class="slogan">App Mozo</p>
+  </div>
+
+  <div class="container p-4">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <p class="text-center p-2">Por favor ingrese a su cuenta</p>
+        <form>
+          <div class="mb-3">
+            <input type="email" id="email-input" class="form-control" [(ngModel)]="email" name="email"
+              placeholder="Email" required="required" />
+          </div>
+          <div class="mb-3">
+            <input type="password" id="password-input" class="form-control" [(ngModel)]="password" name="password"
+              placeholder="Password" required="required" />
+          </div>
+
+          <div class="d-grid gap-2 text-center">
+            <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 border-0" type="submit"
+              (click)="login()">
+              Entrar
+            </button>
+            <p><a class="text-muted" href="#!">¿Olvidó su contraseña?</a></p>
+            <p>
+              <mat-spinner style="margin:0 auto;" *ngIf="showSpinner" mode="indeterminate" diameter="20">
+              </mat-spinner>
+            </p>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

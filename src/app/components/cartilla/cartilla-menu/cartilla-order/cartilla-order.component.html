@@ -1,0 +1,13 @@
+<div class="cartilla-order-container" [hidden]="!showCartillaOrder">
+  <div style="display: flex">
+        <div style="padding: 15px;">
+          Se agregaron <strong><span style="color: var(--color-primary)">{{ itemsQuantity }} items </span></strong> a su pedido.
+        </div>
+        <div style="padding: 15px;">
+          <button type="button" class="btn btn-danger btn-sm" (click)="goToOrder()">Ver Pedido</button>
+        </div>
+
+      
+  </div>
+
+</div>

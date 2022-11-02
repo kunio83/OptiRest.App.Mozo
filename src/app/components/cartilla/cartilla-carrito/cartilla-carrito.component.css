@@ -1,0 +1,60 @@
+
+.cartilla-item {
+    border: 1px solid #ccc;
+    margin: 20px;
+    ;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: grey 0px 0px 10px;
+}
+
+.cartilla-item__name {
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: #D92200;
+    padding-right: 10px;
+}
+
+.cartilla-item__summary {
+    font-size: 14px;
+    margin-bottom: 0px;
+    padding-right: 10px;
+}
+
+.cartilla-item__price {
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 0px;
+}
+
+.cont_tit_cant {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.btns {
+    width: 25px;
+    text-align: right;
+    white-space: nowrap;
+}
+
+
+.cont_agregar {
+    padding: 10px 0px;
+    border-top: 1px solid #0d6efd;
+    border-bottom: 1px solid #0d6efd;
+    margin-bottom: 10px;
+}
+
+.tu-pedido {
+    padding: 10px 0px;
+    border-top: 1px solid var(--color-primary);
+    border-bottom: 1px solid var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.table_ticket{
+    font-size: 14px;
+}
+

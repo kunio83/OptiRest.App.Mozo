@@ -1,0 +1,74 @@
+<app-headeropti></app-headeropti>
+<div class="container py-2">
+
+  <div class="row" style="margin-top: 2rem; margin-bottom:2rem">
+    <div class="col-4" style="text-align:right ;">
+      <img class="logoresto" [src]="'data:image/jpg;base64,' + image" />
+    </div>
+    <div class="col-8">
+      <div class="row titresto">{{ nombreResto }}</div>
+      <div class="row slogan">{{ textoBienvenida }}</div>
+    </div>
+
+  </div>
+
+
+
+  <div class="row  align-items-center rowdat my-4">
+    <div class="col-2 colicon">
+      <span class="material-symbols-outlined icgde py-2">
+        table_bar
+      </span>
+    </div>
+    <div class="col-4">
+      <span class="comment__user"><strong>Tu mesa es:</strong></span>
+    </div>
+    <div class="col-6 text-center">
+      <span class="datores">{{ numeroMesa }}</span>
+    </div>
+
+  </div>
+
+
+  <div class="row  align-items-center rowdat my-4 ">
+    <div class="col-2 colicon">
+      <span class="material-symbols-outlined icgde py-2">
+        face
+      </span>
+    </div>
+    <div class="col-4">
+      <span class="comment__user"><strong>Tu mozo es:</strong></span>
+    </div>
+    <div class="col-6 text-center">
+      <span class="datores">{{ nombreMozo }}</span>
+    </div>
+  </div>
+
+  <div class="row text-center" style="margin-top:4rem ;">
+      <span class="material-symbols-outlined iconxl" >
+        group_add
+      </span>
+      <h4>¿Cuantas personas van a ser?</h4>
+
+      <form (submit)="onSubmit()">
+        <div style="margin-bottom:4rem ;">
+          <div class="d-flex justify-content-center">
+            <input type="number" id="input-adultos" class="form-control" style="width: 20%;"
+              [(ngModel)]="inputComensales" [ngModelOptions]="{standalone: true}">
+            </div>
+        </div>
+        <div class="d-grid gap-2 text-center">
+          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 border-0" type="submit">
+            Comencemos
+          </button>
+        </div>
+
+      </form>
+  </div>
+</div>
+
+
+
+
+
+

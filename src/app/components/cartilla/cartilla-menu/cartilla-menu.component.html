@@ -1,0 +1,16 @@
+<div data-qa="product-category-list" class="sc-d3d292bd-0 menucat">
+  <div class="sc-d3d292bd-1 guXzfb" *ngFor="let category of itemCategories" (click)="filterByCategory($event)">
+    <a class="sc-d3d292bd-2 xcYKY">
+      <span color="graya100" data-testid="typography" class="sc-bxivhb fyzoZN">{{category?.name}}</span>
+    </a>
+  </div>
+</div>
+
+
+<ul class="list-group">
+  <li class="list-group-item" *ngFor="let item of itemsFiltered">
+    <app-item [item]="item"></app-item>
+  </li>
+</ul>
+
+<app-cartilla-order></app-cartilla-order>

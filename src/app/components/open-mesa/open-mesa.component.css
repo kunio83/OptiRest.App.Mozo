@@ -1,0 +1,56 @@
+.logoresto{
+  max-width: 80px;
+  max-height: 80px;
+
+}
+
+.titresto{
+  font-family: 'Signika', sans-serif;
+  font-size: 25px;
+  font-weight: bolder;
+}
+
+.slogan{
+  font-size: 15px;
+  color: rgb(92, 91, 91);
+
+}
+
+.datores {
+  color: #D92200;
+  font-family: 'Signika';
+  font-size: 20px;
+}
+
+.icgde{
+  font-size: 25px;
+}
+
+.rowdat{
+  border: #c7c5c5 1px solid;
+  margin: 5px;
+  border-radius: 15px 0px 0px 15px;
+}
+
+.colicon{
+  background-color: #D92200;
+  color: white;
+  border-radius: 10px 0 0 10px;
+  border: #D92200 3px solid;
+  display: flex;
+}
+
+.iconxl{
+  color: #D92200;
+  font-size: 60px;
+}
+
+.gradient-custom-2 {
+  background: linear-gradient(180deg, #d92200, #ff8731);
+}
+
+.gradient-custom-3 {
+  background: linear-gradient(90deg, #d92200, #ff8731);
+}
+
+
