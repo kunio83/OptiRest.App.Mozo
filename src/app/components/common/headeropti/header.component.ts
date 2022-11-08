@@ -9,6 +9,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class HeaderComponent implements OnInit {
   title = 'OptiRest Comensal App';
+  rout = this.router.url;
 
   constructor(
     private router: Router,
@@ -24,4 +25,13 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('currentMesa');
     this.router.navigateByUrl('/');
   }
+
+
+
+  reDir(dir: string) {
+    this.router.navigateByUrl('/' + dir);
+  } 
+
 }
+
+

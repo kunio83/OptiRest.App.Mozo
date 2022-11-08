@@ -1,0 +1,22 @@
+.card-header{
+    background-color: cornflowerblue;
+    padding: 5px 10px;
+}
+
+.cmesa {
+    display: flex;
+    width: 20%;
+    align-items: center;
+    border-right: 1px solid white;
+}
+
+.cartilla-item__name {
+    font-size: 18px;
+    color: #ffffff;
+    padding: 0px 5px;
+    width: 65%;
+}
+
+.cont_tit {
+    display: flex;
+}

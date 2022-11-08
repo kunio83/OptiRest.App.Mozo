@@ -24,6 +24,8 @@ import { HeaderComponent } from './components/common/headeropti/header.component
 import { CanActivateViaAuthGuardService } from './services/can-activate-via-guard.service';
 import { CartillaOrderComponent } from './components/cartilla/cartilla-menu/cartilla-order/cartilla-order.component';
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
+import { MesasComponent } from './components/mesas/mesas.component';
+import { PedidosComponent } from './components/pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { NotificacionesComponent } from './components/notificaciones/notificacio
     ItemComponent,
     HeaderComponent,
     CartillaOrderComponent,
-    NotificacionesComponent
+    NotificacionesComponent,
+    MesasComponent,
+    PedidosComponent
   ],
   imports: [
     FormsModule,
