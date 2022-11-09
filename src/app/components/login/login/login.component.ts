@@ -43,7 +43,7 @@ export class LoginComponent {
           {
             this.loginService.setUserLogged(true);
             localStorage.setItem('currentUser', JSON.stringify(user));
-            this.router.navigateByUrl('/cartilla');
+            this.router.navigateByUrl('/mesas');
           }
           else
           {
