@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { MesaRequest } from '../models/mesa-request';
 import { Table } from '../models/table';
-import { TableService } from '../models/table-service';
+import { TableService } from '../models/tableService';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,8 @@ export class MesaService {
     let result = this.http.post<TableService>(environment.urlApiBase + 'tableservice', tableService);
 
     return result;
+  }
+  getMesas(tenantId : number) : Observable<Table[]>{
+    return this.http.get<Table[]>(environment.urlApiBase + 'Table?tenantId=' + tenantId);
   }
 }

@@ -3,7 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ItemToOrder } from 'src/app/models/item-to-order';
 import { Order } from 'src/app/models/order';
 import { OrderDetail } from 'src/app/models/order-detail';
-import { TableService } from 'src/app/models/table-service';
+import { TableService } from 'src/app/models/tableService';
 import { TableService2Item } from 'src/app/models/table-service2-items';
 import { CartillaService } from 'src/app/services/cartilla.service';
 

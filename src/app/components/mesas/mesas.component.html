@@ -1,175 +1,32 @@
+<!-- Falta traer el id del mozo para que se pueda filtrar por mozo -->
 <app-headeropti></app-headeropti>
 <div class="container">
-    <div class="card-body"><a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 solcobro">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> T1 </div>
-                <div class="col-3 coliconm"><span class="material-symbols-outlined icgde py-2"> group_add </span> 3
+    <div class="card-body">
+        <div class="card-body">
+            <ng-container *ngFor="let serv of tableServiceList">
+            <a href="javascript:;" *ngIf="serv.userId==currentUser.id">
+                <div class="row  align-items-center rowdat my-1" [ngClass]="(serv.serviceStateId == 1 ? 'servact':
+                (serv.serviceStateId == 2 ? 'solmozo': 'solcobro'))">
+                    <div class="col-3 coliconm bordleftround">
+                        <span class="material-symbols-outlined icgde py-2">
+                            table_bar
+                        </span>
+                        {{ getTableName(serv.tableId) }}
+                    </div>
+                    <div class="col-3 coliconm">
+                        <span class="material-symbols-outlined icgde py-2">
+                            group_add
+                        </span>
+                        {{ serv.diners }}
+                    </div>
+                    <div class="col-6 coliconm2">
+                        <span class="material-symbols-outlined icgde py-2">
+                            receipt_long
+                        </span>
+                        <span>{{ getStateName(serv.serviceStateId) }}</span>
+                    </div>
                 </div>
-                <div class="col-6 coliconm2"><span class="material-symbols-outlined icgde py-2"> receipt_long
-                    </span><span>Solicita Cobro</span></div>
-            </div>
-        </a><a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 solcobro">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> B9 </div>
-                <div class="col-3 coliconm"><span class="material-symbols-outlined icgde py-2"> group_add </span> 4
-                </div>
-                <div class="col-6 coliconm2"><span class="material-symbols-outlined icgde py-2"> receipt_long
-                    </span><span>Solicita Cobro</span></div>
-            </div>
-        </a><a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 solmozo">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> T2 </div>
-                <div class="col-3 coliconm"><span class="material-symbols-outlined icgde py-2"> group_add </span> 3
-                </div>
-                <div class="col-6 coliconm2"><span class="material-symbols-outlined icgde py-2"> receipt_long
-                    </span><span>Solicita Mozo</span></div>
-            </div>
-        </a><a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 solmozo">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> M4 </div>
-                <div class="col-3 coliconm"><span class="material-symbols-outlined icgde py-2"> group_add </span> 3
-                </div>
-                <div class="col-6 coliconm2"><span class="material-symbols-outlined icgde py-2"> receipt_long
-                    </span><span>Solicita Mozo</span></div>
-            </div>
-        </a><a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 servact">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> T3 </div>
-                <div class="col-3 coliconm"><span class="material-symbols-outlined icgde py-2"> group_add </span> 1
-                </div>
-                <div class="col-6 coliconm2"><span class="material-symbols-outlined icgde py-2"> receipt_long
-                    </span><span>En
-                        Servicio</span></div>
-            </div>
-        </a><a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 servact">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> M1 </div>
-                <div class="col-3 coliconm"><span class="material-symbols-outlined icgde py-2"> group_add </span> 2
-                </div>
-                <div class="col-6 coliconm2"><span class="material-symbols-outlined icgde py-2"> receipt_long
-                    </span><span>En
-                        Servicio</span></div>
-            </div>
-        </a><a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 servact">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> M1 </div>
-                <div class="col-3 coliconm"><span class="material-symbols-outlined icgde py-2"> group_add </span> 2
-                </div>
-                <div class="col-6 coliconm2"><span class="material-symbols-outlined icgde py-2"> receipt_long
-                    </span><span>En
-                        Servicio</span></div>
-            </div>
-        </a><a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 servact">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> T2 </div>
-                <div class="col-3 coliconm"><span class="material-symbols-outlined icgde py-2"> group_add </span> 2
-                </div>
-                <div class="col-6 coliconm2"><span class="material-symbols-outlined icgde py-2"> receipt_long
-                    </span><span>En
-                        Servicio</span></div>
-            </div>
-        </a>
-        <a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 mesalibre">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> R2 </div>
-                <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
-                    </span>Libre </div>
-
-                <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
-                    </span><strong>Abrir
-                    </strong></div>
-
-            </div>
-        </a>
-        <a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 mesalibre">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> R3 </div>
-                <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
-                    </span>Libre </div>
-
-                <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
-                    </span><strong>Abrir
-                    </strong></div>
-
-            </div>
-        </a>
-        <a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 mesalibre">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> R4 </div>
-                <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
-                    </span>Libre </div>
-
-                <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
-                    </span><strong>Abrir
-                    </strong></div>
-
-            </div>
-        </a>
-        <a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 mesalibre">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> R5 </div>
-                <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
-                    </span>Libre </div>
-
-                <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
-                    </span><strong>Abrir
-                    </strong></div>
-
-            </div>
-        </a>
-        <a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 mesalibre">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> R6 </div>
-                <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
-                    </span>Libre </div>
-
-                <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
-                    </span><strong>Abrir
-                    </strong></div>
-
-            </div>
-        </a>
-        <a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 mesalibre">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> R7 </div>
-                <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
-                    </span>Libre </div>
-
-                <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
-                    </span><strong>Abrir
-                    </strong></div>
-
-            </div>
-        </a>
-        <a href="javascript:;">
-            <div class="row align-items-center rowdat my-1 mesalibre">
-                <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2"> table_bar
-                    </span> R8 </div>
-                <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
-                    </span>Libre </div>
-
-                <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
-                    </span><strong>Abrir
-                    </strong></div>
-
-            </div>
-        </a>
-
-        <!---->
-    </div>
-
-</div>
+            </a>
+        </ng-container>
+        </div>
+</div>        

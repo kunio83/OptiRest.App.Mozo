@@ -1,5 +1,5 @@
 import { Item } from "./item";
-import { TableService } from "./table-service";
+import { TableService } from "./tableService";
 
 export class TableService2Item{
     id: number;

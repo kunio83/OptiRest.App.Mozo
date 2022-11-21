@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MesaRequest } from 'src/app/models/mesa-request';
 import { Table } from 'src/app/models/table';
-import { TableService } from 'src/app/models/table-service';
+import { TableService } from 'src/app/models/tableService';
 import { User } from 'src/app/models/user';
 import { MesaService } from 'src/app/services/mesa.service';
 
