@@ -57,7 +57,7 @@ export class CartillaComponent implements OnInit {
 
   openCarta(): void{
     this.cartillaService.setCurrentTab = 'carta';
-    //this.selectedTab = 'carta';
+    this.selectedTab = 'carta';
   }
 
   showMozoModal(): void{

@@ -1,3 +1,4 @@
+import { User } from './../../../models/user';
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Item } from 'src/app/models/item';
 import { ItemCategory } from 'src/app/models/item-category';
@@ -23,8 +24,8 @@ export class CartillaMenuComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let mesaData: Table = JSON.parse(localStorage.getItem('currentMesa') ?? '');
-    this.cartillaService.getAllItems(mesaData.tenantId).subscribe(items => {
+    let user: User = JSON.parse(localStorage.getItem('currentUser') ?? '');
+    this.cartillaService.getAllItems(user.tenantId).subscribe(items => {
       const itemCategoryNames: string[] = [];
       this.itemsFiltered = items;
       this.allItems = items;

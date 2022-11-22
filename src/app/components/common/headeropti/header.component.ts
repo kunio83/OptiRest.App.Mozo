@@ -1,3 +1,4 @@
+import { CartillaService } from 'src/app/services/cartilla.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
@@ -14,6 +15,7 @@ export class HeaderComponent implements OnInit {
   constructor(
     private router: Router,
     private loginService: LoginService,
+    private cartillaService: CartillaService
     ) {}
 
     ngOnInit() {
@@ -29,8 +31,9 @@ export class HeaderComponent implements OnInit {
 
 
   reDir(dir: string) {
+    this.cartillaService.setCurrentTab = dir;
     this.router.navigateByUrl('/' + dir);
-  } 
+  }
 
 }
 

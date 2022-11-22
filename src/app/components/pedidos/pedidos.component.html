@@ -11,8 +11,7 @@
                             {{ getTableName(itemserv.tableService.tableId) }}
                         </div>
                         <div class="cartilla-item__name"> {{ itemserv.item.title }}
-                            <span style="color: var(--bs-list-group-color);"><strong> x {{ itemserv.quantity
-                                    }}</strong></span>
+                            <span style="color: var(--bs-list-group-color);"><strong> x {{ itemserv.quantity }}</strong></span>
                         </div>
                         <div style="display: flex; width:15%">
                             <button class="btn btn-secondary btn-sm w-100" (click)="updateItemState(itemserv, 4, i)">
