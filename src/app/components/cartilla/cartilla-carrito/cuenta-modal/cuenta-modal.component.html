@@ -1,0 +1,71 @@
+
+		<div class="modal-header" style="border-bottom: 1px solid #D92200;">
+			<p class="modal-title" style="    font-size: 18px; font-weight: bold; color: #D92200;">Cuenta</p>
+			<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"
+      style="padding: 0; margin:0"></button>
+		</div>
+
+		<div class="modal-body">
+
+    <div class="container" *ngIf="!showMPModal">
+      <table class="table table_ticket">
+        <thead>
+          <tr>
+            <th>Cant.</th>
+            <th>Detalle</th>
+            <th>Precio</th>
+            <th>Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of itemsOredered">
+            <td>
+              {{ item.quantity }}
+            </td>
+            <td>
+              {{ item.item.title }}
+            </td>
+            <td style="text-align: right;">
+              {{ item.item.price | currency }}
+            </td>
+            <td style="text-align: right;">
+              {{ item.item.price * item.quantity | currency }}
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: right;">
+              <strong>Total</strong>
+            </td>
+            <td>
+              <strong>{{ totalPriceOrder | currency }}</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="display: flex; justify-content: space-evenly;">
+        <button type="button" class="btn btn-secondary btn-sm" (click)="payCash()"><i class="fa fa-money" aria-hidden="true" ></i> Efectivo</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="payMercadoPago()"><i class="fa fa-credit-card" aria-hidden="true" ></i> Mercado Pago</button>
+      </div>
+    </div>
+
+    <div class="container" *ngIf="showMPModal">
+      <div *ngIf="showSpinner">
+        <p>
+          Procesando Pago...
+        </p>
+        <p>
+          <mat-spinner style="margin:0 auto;" mode="indeterminate" diameter="20"></mat-spinner>
+        </p>
+    </div>
+      <div *ngIf="endPayment" class="center">
+        <p>
+          <strong>Pago Procesado</strong>
+        </p>
+        <p>
+          <button class="btn btn-secondary" (click)="closeMPModal()">Cerrar</button>
+        </p>
+      </div>
+    </div>
+
+
+  </div>

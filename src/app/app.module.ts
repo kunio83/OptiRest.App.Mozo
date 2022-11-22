@@ -26,6 +26,8 @@ import { CartillaOrderComponent } from './components/cartilla/cartilla-menu/cart
 import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { MesasComponent } from './components/mesas/mesas.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { CartillaMozoModal } from './components/cartilla/cartilla-mozo-modal/cartilla-mozo-modal.component';
+import { CuentaModalComponent } from './components/cartilla/cartilla-carrito/cuenta-modal/cuenta-modal.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { PedidosComponent } from './components/pedidos/pedidos.component';
     CartillaOrderComponent,
     NotificacionesComponent,
     MesasComponent,
-    PedidosComponent
+    PedidosComponent,
+    CartillaMozoModal,
+    CuentaModalComponent
   ],
   imports: [
     FormsModule,

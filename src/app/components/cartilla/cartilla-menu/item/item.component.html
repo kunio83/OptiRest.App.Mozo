@@ -1,27 +1,32 @@
-<div>
-  <div class="cont_tit_cant">
-    <div class="cartilla-item__name">
-      {{ item.title }}
-    </div>
-      <div class="btns">
-          <button type="button" class="btn btn-number" data-type="minus" (click)="decreaseItemQuantity()">
-            <i-bs name="dash-square" class="item-icon"></i-bs>
-          </button>
-        {{ inputItemQuantity }}
-          <button type="button" class="btn btn-number" data-type="plus" (click)="increaseItemQuantity()">
-            <i-bs name="plus-square"  class="item-icon"></i-bs>
-          </button>
+<div style="display: flex;">
+  <div style="width: 28%">                           
+      <img class="img-space" src="{{ item.picture }}" />
+  </div>
+  <div style="width: 72%">
+    <div class="cont_tit_cant">
+      <div class="cartilla-item__name">
+        {{ item.title }}
       </div>
-  </div>
-
-  <div class="cont_tit_cant">
-    <div class="cartilla-item__summary">
-      {{ item.summary }}
+      <div class="btns">
+        <button type="button" class="btn btn-number" data-type="minus" (click)="decreaseItemQuantity()">
+          <i-bs name="dash-square" class="item-icon"></i-bs>
+        </button>
+        {{ inputItemQuantity }}
+        <button type="button" class="btn btn-number" data-type="plus" (click)="increaseItemQuantity()">
+          <i-bs name="plus-square" class="item-icon"></i-bs>
+        </button>
+      </div>
     </div>
 
-    <div>
-      <input type="button" class="btn btn-danger btn-sm btnpedir" value="Agregar" (click)="addItemToCart()"/>
+    <div class="cont_tit_cant">
+      <div class="cartilla-item__summary">
+        {{ item.summary }}
+      </div>
+
+      <div>
+        <input type="button" class="btn btn-danger btn-sm btnpedir" value="Agregar" (click)="addItemToCart()" />
+      </div>
     </div>
+    <p class="cartilla-item__price">{{item.price | currency}}</p>
   </div>
-  <p class="cartilla-item__price">{{item.price | currency}}</p>
 </div>

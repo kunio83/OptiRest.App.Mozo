@@ -10,12 +10,11 @@ import { CartillaService } from 'src/app/services/cartilla.service';
 })
 export class ItemComponent implements OnInit {
   @Input() item: Item;
-  //@Input() addItemToOrder: Function;
-  //@Input() itemsToOrder: Item[] = [];
-
+  @Input() isBuyer: boolean;
   inputItemQuantity: number = 1;
   hasThisItem: boolean = false;
   totalItemQuantity: number = 0;
+
   constructor(
     private cartillaService: CartillaService,
     private toastr: ToastrService
@@ -39,6 +38,6 @@ export class ItemComponent implements OnInit {
     this.hasThisItem = true;
 
     this.cartillaService.addItemsToOrder(this.item, this.inputItemQuantity);
-    this.toastr.info(this.inputItemQuantity.toString() + ' unidades de ' + this.item.title + ' agregados al pedido.');
+    this.toastr.success(this.inputItemQuantity.toString() + ' unidades de ' + this.item.title + ' agregados al pedido.');
   }
 }

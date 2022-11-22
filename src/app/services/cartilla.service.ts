@@ -1,3 +1,4 @@
+import { TableService } from 'src/app/models/tableService';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -15,7 +16,10 @@ export class CartillaService {
 
   // Items
   private behaviorSubject: BehaviorSubject<ItemToOrder[]> = new BehaviorSubject<ItemToOrder[]>([]);
+  private itemsOrderedBehaviorSubject: BehaviorSubject<TableService2Item[]> = new BehaviorSubject<TableService2Item[]>([]);
+
   get itemsToOrder(): Observable<ItemToOrder[]> {return this.behaviorSubject.asObservable();}
+  get itemsOrdered(): Observable<TableService2Item[]>{return this.itemsOrderedBehaviorSubject.asObservable();}
 
   getAllItems(tenantId: number): Observable<Item[]> {
     return this.httpClient.get<Item[]>(environment.urlApiBase + 'item?tenantId=' + tenantId);
@@ -60,12 +64,31 @@ export class CartillaService {
     this.behaviorSubject.next([]);
   }
 
+  getOrderedItems(tableServciceid: number): Observable<TableService2Item[]> {
+    if (this.itemsOrderedBehaviorSubject.getValue() == undefined || this.itemsOrderedBehaviorSubject.getValue().length == 0) {
+      this.refreshOrderedItems(tableServciceid);
+    }
+
+    return this.itemsOrderedBehaviorSubject.asObservable();
+  }
+
+  refreshOrderedItems(tableServciceid: number): void {
+    this.httpClient.get<TableService2Item[]>(environment.urlApiBase + 'TableService2Item/byTableService?tableServiceId=' + tableServciceid).subscribe((itemsOrdered) => {
+
+      if(localStorage.getItem('currentTableService') != null && localStorage.getItem('currentTableService') != '' ){
+        this.itemsOrderedBehaviorSubject.next(itemsOrdered);
+      }
+    });
+  }
+
   // Tabs
   private currentTabBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   get getCurrentTab(): Observable<string> { return this.currentTabBehaviorSubject.asObservable();}
   set setCurrentTab(value: string) {this.currentTabBehaviorSubject.next(value);}
 
-  getOrderedItems(tableServciceid: number): Observable<TableService2Item[]> {
-    return this.httpClient.get<TableService2Item[]>(environment.urlApiBase + 'TableService2Item/byTableService?tableServiceId=' + tableServciceid);
+  // payments
+  updateTableService(tableService: TableService): Observable<TableService> {
+    return this.httpClient.put<any>(environment.urlApiBase + 'TableService/', tableService);
   }
+
 }

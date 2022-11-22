@@ -11,6 +11,7 @@ export class Item {
     summary: string;
     price: number;
     active: boolean;
+    picture: string;
     itemCategory: ItemCategory | null;
     kitchen: Kitchen | null;
 }

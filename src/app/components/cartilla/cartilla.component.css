@@ -1,11 +1,29 @@
 .contbuttons{
   display: flex;
-  justify-content: space-evenly;
-  padding: 10px;
+  justify-content: space-between;
   position: sticky;
   top: 50px;
   z-index: 9;
   background: white;
   height: 50px;
+  background-color: #e3e3e3;
+  border-bottom: 1px solid black;
 }
 
+.top-buttons{
+  width: 100px;
+}
+
+.titMesa {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  width: 30%;
+  justify-content: space-evenly;
+  padding-right: 20px;
+  padding: 25px;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: -8%;
+}

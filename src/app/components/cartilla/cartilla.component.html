@@ -1,20 +1,25 @@
 <app-headeropti></app-headeropti>
 
-  <div class="contbuttons">
-    <div>
-      <button type="button" class="btn btn-outline-danger btn-sm" [ngClass]="{'btn-selected': selectedTab == 'lista'}"
-        (click)="openLista()">Pedidos</button>
-    </div>
-    <div>
-      <button type="button" class="btn btn-outline-danger btn-sm" [ngClass]="{'btn-selected': selectedTab == 'carta'}"
-        (click)="openCarta()">Carta</button>
-    </div>
-    <div>
-      <button type="button" class="btn btn-outline-danger btn-sm" [ngClass]="{'btn-selected': selectedTab == 'notidicaciones'}"
-        (click)="openNotifications()">Notificaciones</button>
-    </div>
+<!--
+<div class="contbuttons" *ngIf="!isBuyer">
+</div>
+-->
+<div class="contbuttons">
+  <div class="titMesa">
+    <span class="material-symbols-outlined icgde py-2">
+      table_bar
+    </span>
+    {{ mesaName }}
   </div>
+  <div>
+    <button type="button" class="btn btn-outline-danger btn-sm top-buttons" style="margin-top: 10px;"
+      [ngClass]="{'btn-selected': selectedTab == 'lista'}" (click)="openLista()">Pedido</button>
+  </div>
+  <div>
+    <button type="button" class="btn btn-outline-danger btn-sm top-buttons" style="margin-top: 10px; margin-right: 20px;"
+      [ngClass]="{'btn-selected': selectedTab == 'carta'}" (click)="openCarta()">Carta</button>
+  </div>
+</div>
 
-<app-cartilla-menu [hidden]="selectedTab != 'carta'"></app-cartilla-menu>
+<app-cartilla-menu [hidden]="selectedTab != 'carta'" [isBuyer]="isBuyer"></app-cartilla-menu>
 <app-cartilla-carrito [hidden]="selectedTab != 'lista'"></app-cartilla-carrito>
-<app-notificaciones [hidden]="selectedTab != 'notificaciones'"></app-notificaciones>

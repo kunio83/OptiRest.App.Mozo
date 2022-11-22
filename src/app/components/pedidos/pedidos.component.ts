@@ -39,7 +39,7 @@ export class PedidosComponent implements OnInit {
         this.pedidoList = res as TableService2Item[];
         this.pedidoList=this.pedidoList.filter(x => x.itemStateId == 3);
         this.pedidoList=this.pedidoList.filter(x => x.tableService.userId == mozo.id);
-        console.log(this.pedidoList); });
+      });
 
     this.tableService.getMesas(environment.tenantId).subscribe(
       res => { this.tableList = res as []; });

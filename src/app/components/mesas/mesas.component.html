@@ -1,33 +1,52 @@
-<!-- Falta traer el id del mozo para que se pueda filtrar por mozo -->
 <app-headeropti></app-headeropti>
 <div class="container">
-    <button (click)="updateTableList()">TABE</button>
     <div class="card-body">
         <div class="card-body">
-            <ng-container *ngFor="let serv of tableServiceList">
-            <a href="javascript:;">
-                <div class="row  align-items-center rowdat my-1" [ngClass]="(serv.serviceStateId == 1 ? 'servact':
-                (serv.serviceStateId == 2 ? 'solmozo': 'solcobro'))">
-                    <div class="col-3 coliconm bordleftround">
-                        <span class="material-symbols-outlined icgde py-2">
-                            table_bar
-                        </span>
-                        {{ getTableName(serv.tableId) }}
-                    </div>
-                    <div class="col-3 coliconm">
-                        <span class="material-symbols-outlined icgde py-2">
-                            group_add
-                        </span>
-                        {{ serv.diners }}
-                    </div>
-                    <div class="col-6 coliconm2">
-                        <span class="material-symbols-outlined icgde py-2">
-                            receipt_long
-                        </span>
-                        <span>{{ getStateName(serv.serviceStateId) }}</span>
-                    </div>
-                </div>
-            </a>
-        </ng-container>
+            <ng-container *ngFor="let serv of mesaServList">
+                <ng-container *ngIf ="serv.servState !=0; else Libre">
+                    <a href="javascript:;" (click)="iraMesa(serv.mesaName, serv.servId)">
+                        <div class="row  align-items-center rowdat my-1" [ngClass]="(serv.servState == 1 ? 'servact':
+                (serv.servState == 2 ? 'solmozo': 'solcobro'))">
+                            <div class="col-3 coliconm bordleftround">
+                                <span class="material-symbols-outlined icgde py-2">
+                                    table_bar
+                                </span>
+                                {{ serv.mesaName }}
+                            </div>
+                            <div class="col-3 coliconm">
+                                <span class="material-symbols-outlined icgde py-2">
+                                    group_add
+                                </span>
+                                {{ serv.servDiners }}
+                            </div>
+                            <div class="col-6 coliconm2">
+                                <span class="material-symbols-outlined icgde py-2">
+                                    receipt_long
+                                </span>
+                                <span>{{ getStateName(serv.servState) }}</span>
+                            </div>
+                        </div>
+                    </a>
+                </ng-container>
+                <ng-template #Libre>
+                    <a href="javascript:;">
+                        <div class="row align-items-center rowdat my-1 mesalibre">
+                            <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2">
+                                    table_bar
+                                </span> {{ serv.mesaName }}
+                            </div>
+                            <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
+                                </span>Libre
+                            </div>
+                            <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
+                                </span><strong>Abrir
+                                </strong>
+                            </div>
+                        </div>
+                    </a>
+                </ng-template>
+            </ng-container>
+
+
         </div>
-</div>        
+    </div>

@@ -1,0 +1,58 @@
+
+		<div class="modal-header" style="border-bottom: 1px solid #D92200;">
+			<p class="modal-title" style="    font-size: 18px; font-weight: bold; color: #D92200;">Pedido al mozo</p>
+			<button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"
+      style="padding: 0; margin:0"></button>
+		</div>
+
+		<div class="modal-body">
+      <form [formGroup]="pedidoMozoForm">
+
+        <div class="form-check mb-2">
+          <input type="checkbox" class="form-check-input">
+          <label for="checkBox-mozo" class="form-check-label">Solicitar presencia del mozo</label>
+        </div>
+
+        <div class="form-check mb-2">
+          <input type="checkbox" formControlName="checkbox-servilletas" id="checkbox-servilletas" class="form-check-input" form>
+          <label for="checkbox-servilletas" class="form-check-label">Servilletas</label>
+        </div>
+
+        <div class="form-check mb-2">
+          <input type="checkbox" formControlName="checkbox-hielo" id="checkbox-hielo" class="form-check-input">
+          <label for="checkbox-hielo" class="form-check-label">Hielo</label>
+        </div>
+
+        <div class="form-check mb-2">
+          <input type="checkbox" formControlName="checkbox-sal" id="checkbox-sal" class="form-check-input">
+          <label for="checkbox-sal" class="form-check-label">Sal</label>
+        </div>
+
+        <div class="form-check mb-2">
+          <input type="checkbox" formControlName="checkbox-pimienta" id="checkbox-pimienta" class="form-check-input">
+          <label for="checkbox-pimienta" class="form-check-label">Pimienta</label>
+        </div>
+
+        <div class="form-check mb-2">
+          <input type="checkbox" formControlName="checkbox-limon" id="checkbox-limon" class="form-check-input">
+          <label for="checkbox-limon" class="form-check-limon">Limon</label>
+        </div>
+
+        <div class="form-check mb-3">
+          <input type="checkbox" formControlName="checkbox-condimentos" id="checkbox-condimentos" class="form-check-input">
+          <label for="checkbox-condimentos" class="form-check-label">Condimentos</label>
+        </div>
+
+        <div class="mb-3">
+          <label for="custom">Otro (escriba su pedido):</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="textarea-custom"></textarea>
+        </div>
+
+          <button type="submit" class="btn btn-danger btn-sm float-end mb-3" (click)="enviarPedido()">Enviar Pedido</button>
+
+      </form>
+    <!--
+		<div class="modal-footer">
+			<button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+		</div>-->
+  </div>

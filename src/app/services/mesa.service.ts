@@ -30,4 +30,20 @@ export class MesaService {
   getMesas(tenantId : number) : Observable<Table[]>{
     return this.http.get<Table[]>(environment.urlApiBase + 'Table?tenantId=' + tenantId);
   }
+
+  updateTableService(tableService: TableService): Observable<TableService> {
+    return this.http.put<TableService>(environment.urlApiBase + 'tableservice/', tableService);
+  }
+
+  getTableService(tableServiceId: number): Observable<TableService> {
+    let result = this.http.get<TableService>(environment.urlApiBase + 'tableservice/' + tableServiceId);
+
+    return result;
+  }
+
+  deleteTableService2Item(tableServiceId: number, itemId: number): Observable<number> {
+    return this.http.delete<number>(environment.urlApiBase + 'TableService2Item/byTableServiceIdAndItemId?tableServiceId=' + tableServiceId + '&itemId=' + itemId);
+  }
+
+
 }

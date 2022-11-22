@@ -28,7 +28,7 @@
 
   <div class="tu-pedido">
     <div class="p-2">
-      <h4 style="color:var(--color-primary);">Tu Pedido</h4>
+      <h4 style="color:var(--color-primary);"><strong>Pedido</strong></h4>
     </div>
 
     <ul class="list-group">
@@ -40,7 +40,7 @@
                   }}</strong></span>
             </div>
             <div class="btns" *ngIf="item.itemStateId == 1">
-              <button class="btn btn-outline-danger btn-sm" (click)="removeItemFromOrder(item)">
+              <button class="btn btn-outline-danger btn-sm" (click)="removeItemOrdered(item)">
                 <i class="fa fa-trash"></i>
               </button>
             </div>
@@ -72,7 +72,7 @@
   </div>
 </div>
 
-<div class="container">
+<!-- <div class="container">
   <table class="table table_ticket">
     <thead>
       <tr>
@@ -85,7 +85,7 @@
     <tbody>
       <tr *ngFor="let item of itemsOredered">
         <td>
-          {{ item.quantity }}  
+          {{ item.quantity }}
         </td>
         <td>
           {{ item.item.title }}
@@ -111,4 +111,4 @@
     <button type="button" class="btn btn-secondary btn-sm"><i class="fa fa-money" aria-hidden="true"></i> Efectivo</button>
     <button type="button" class="btn btn-primary btn-sm"><i class="fa fa-credit-card" aria-hidden="true"></i> Mercado Pago</button>
   </div>
-</div>
+</div> -->
