@@ -39,13 +39,16 @@ export class MesasComponent implements OnInit {
   ngOnInit(): void {
     this.mesaService.getMesas(environment.tenantId).subscribe(
       res => { this.tablelist = res as []; });
-
-    this.tableServiceService.getTableServices(environment.tenantId).subscribe(
-      res => {this.tableServiceList = res as []; });   
     
     this.tableServiceService.getTableServiceStates().subscribe(
       res => {this.serviceStateList = res as []; });
     this.currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '');
+    
+      this.tableServiceService.getTableServices(environment.tenantId).subscribe(
+        res => {
+          res.sort((a, b) => (a.serviceStateId < b.serviceStateId) ? 1 : ((b.serviceStateId < a.serviceStateId) ? -1 : 0));
+          this.tableServiceList = res as [];
+        });  
   }
 
   getTableName(tableId: number) {
