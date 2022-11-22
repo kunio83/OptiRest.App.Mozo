@@ -24,6 +24,7 @@ export class MesasComponent implements OnInit {
   notification = null;
   orderTotal: number;
   currentUser: User;
+  mesaServList: any = [];
 
   constructor(
     private fb: FormBuilder,
@@ -37,18 +38,56 @@ export class MesasComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '');
+
     this.mesaService.getMesas(environment.tenantId).subscribe(
-      res => { this.tablelist = res as []; });
+      res => { 
+        this.tablelist = res as []; 
+        this.tablelist = this.tablelist.filter(t => t.userId == this.currentUser.id);
+      });
     
     this.tableServiceService.getTableServiceStates().subscribe(
       res => {this.serviceStateList = res as []; });
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser') ?? '');
-    
-      this.tableServiceService.getTableServices(environment.tenantId).subscribe(
+
+    this.tableServiceService.getTableServices(environment.tenantId).subscribe(
         res => {
           res.sort((a, b) => (a.serviceStateId < b.serviceStateId) ? 1 : ((b.serviceStateId < a.serviceStateId) ? -1 : 0));
           this.tableServiceList = res as [];
+          this.tableServiceList = this.tableServiceList.filter(ts => ts.userId == this.currentUser.id);
         });  
+      
+  }
+
+  updateTableList(){
+    this.mesaServList = [];
+    let mesas = this.tablelist;
+    let servicios = this.tableServiceList;
+    mesas.forEach((mesa: any)=>{
+      let mesaId = mesa.id;
+      let mesaName = this.getTableName(mesaId);
+      let mesaState = mesa.stateId;
+      let servId = 0;
+      let servDiners = 0;
+      let servState = 0;
+      let servMesa = servicios.filter(s => s.tableId == mesaId)[0];
+      if (servMesa)
+      {
+        servId = servMesa.id;
+        servDiners = servMesa.diners;
+        servState = servMesa.serviceStateId;
+      }
+      this.mesaServList.push({
+        mesaId: mesaId,
+        mesaName: mesaName,
+        mesaState: mesaState,
+        servId: servId,
+        servDiners: servDiners,
+        servState: servState
+      })
+    });
+
+    console.log(this.mesaServList);
+
   }
 
   getTableName(tableId: number) {

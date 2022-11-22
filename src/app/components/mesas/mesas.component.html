@@ -1,10 +1,11 @@
 <!-- Falta traer el id del mozo para que se pueda filtrar por mozo -->
 <app-headeropti></app-headeropti>
 <div class="container">
+    <button (click)="updateTableList()">TABE</button>
     <div class="card-body">
         <div class="card-body">
             <ng-container *ngFor="let serv of tableServiceList">
-            <a href="javascript:;" *ngIf="serv.userId==currentUser.id">
+            <a href="javascript:;">
                 <div class="row  align-items-center rowdat my-1" [ngClass]="(serv.serviceStateId == 1 ? 'servact':
                 (serv.serviceStateId == 2 ? 'solmozo': 'solcobro'))">
                     <div class="col-3 coliconm bordleftround">
