@@ -2,16 +2,6 @@
   <div class="row">
     <div class="col" style=" display: flex;    justify-content: space-between">
       <div><img src="../../../assets/logh80.png" alt="logo" class="logo"></div>
-
-      <div>
-        <span id="group" style="margin-left: 60px;">
-          <button type="button" class="btn btn-default" style="color: white; margin:0px; padding: 0; font-size: 25px;">
-           <i-bs class="fa fa-comment-o"></i-bs>
-          </button>
-          <span class="badge badge-light">5</span>
-        </span>
-      </div>
-
       <div>
         <button type="button" class="btn btn-default btn-sm" style="color: white;" (click)="logOut()">
           <i-bs name="box-arrow-left" width="25" height="25"></i-bs>
@@ -23,20 +13,24 @@
 
 <div class="contbuttons">
   <div>
-    <button type="button" id="mesas" class="btn btn-danger btn-sm ancho" (click)="reDir('mesas')" [ngClass]="rout=='/mesas' ? 'active' : ''">
+    <button type="button" id="mesas" class="btn btn-danger btn-sm ancho" (click)="reDir('mesas')"
+      [ngClass]="rout=='/mesas' ? 'active' : ''">
       Mesas</button>
   </div>
   <div>
-    <button type="button" id="pedidos" class="btn btn-danger btn-sm ancho" (click)="reDir('pedidos')" [ngClass]="rout=='/pedidos' ? 'active' : ''">
+    <button type="button" id="pedidos" class="btn btn-danger btn-sm ancho" (click)="reDir('pedidos')"
+      [ngClass]="rout=='/pedidos' ? 'active' : ''">
       Pedidos</button>
   </div>
   <div>
-  <button type="button" id="pedidos" class="btn btn-danger btn-sm ancho" (click)="reDir('notificaciones')" [ngClass]="rout=='/notificaciones' ? 'active' : ''">
-    Notificaciones</button>
-</div>
-  <!--
-  <div>
-    <button type="button" id="otro" class="btn btn-outline-danger btn-sm" (click)="reDir('otro')" [ngClass]=""
-      >Otro</button>
-  </div>-->
+    <div (click)="reDir('notificaciones')"
+    [ngClass]="rout=='/notificaciones' ? 'active' : ''">
+      <span id="group">
+        <button type="button" class="btn btn-default" style="color: rgb(0, 0, 0); margin:0px; padding: 0; font-size: 25px;">
+          <i-bs class="fa fa-comment-o"></i-bs>
+        </button>
+        <span class="badge badge-light">5</span>
+      </span>
+    </div>
+  </div>
 </div>
