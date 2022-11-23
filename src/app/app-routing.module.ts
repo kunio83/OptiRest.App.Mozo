@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartillaComponent } from './components/cartilla/cartilla.component';
 import { LoginComponent } from './components/login/login/login.component';
 import { MesasComponent } from './components/mesas/mesas.component';
+import { NotificacionesComponent } from './components/notificaciones/notificaciones.component';
 import { OpenMesaComponent } from './components/open-mesa/open-mesa.component';
 import { PedidosComponent } from './components/pedidos/pedidos.component';
 import { CanActivateViaAuthGuardService } from './services/can-activate-via-guard.service';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: "cartilla", component: CartillaComponent, pathMatch: "full",  canActivate: [CanActivateViaAuthGuardService] },
   { path: "mesas", component: MesasComponent, pathMatch: "full",  canActivate: [CanActivateViaAuthGuardService] },
   { path: "pedidos", component: PedidosComponent, pathMatch: "full",  canActivate: [CanActivateViaAuthGuardService] },
+  { path: "notificaciones", component: NotificacionesComponent, pathMatch: "full",  canActivate: [CanActivateViaAuthGuardService] },
 ];
 
 @NgModule({
