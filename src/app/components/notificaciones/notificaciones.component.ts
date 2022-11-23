@@ -27,7 +27,7 @@ export class NotificacionesComponent implements OnInit {
       );
 
     this.notifications = sortedDesc as Notification[];
-    });
+    }); 
   }
   deleteNotification(notification: Notification) {
     this.notificationService.deleteNotificationFromStorage(notification);
