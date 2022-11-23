@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder } from '@angular/forms';
-import { TableService } from 'src/app/models/tableService';
 import { User } from 'src/app/models/user';
 import { MesaService } from 'src/app/services/mesa.service';
-import { TableServiceService } from 'src/app/services/table-service.service';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { TableServiceService } from 'src/app/services/table-service.service';
+import { TableService } from 'src/app/models/tableService';
 
 @Component({
   selector: 'app-mesas',
@@ -43,10 +43,10 @@ export class MesasComponent implements OnInit {
         this.tablelist = this.tablelist.filter(t => t.userId == this.currentUser.id);
 
         this.tableServiceService.getTableServiceStates().subscribe(
-          res => {
+          (res: any) => {
             this.serviceStateList = res as [];
             this.tableServiceService.getTableServices(environment.tenantId).subscribe(
-              res => {
+              (res: any) => {
                 this.tableServiceList = res as [];
                 this.tableServiceList = this.tableServiceList.filter(ts => ts.userId == this.currentUser.id);
 
@@ -107,12 +107,12 @@ export class MesasComponent implements OnInit {
     console.log(servId);
     localStorage.setItem('mesa', mesaName);
     this.tableServiceService.getTableService(servId).subscribe({
-      next: data =>{
+      next: (data: any) =>{
         localStorage.setItem('currentTableService', JSON.stringify(data));
         this.router.navigateByUrl('/cartilla');
       },
     });
-    
+
   }
 }
 

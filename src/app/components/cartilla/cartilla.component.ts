@@ -32,19 +32,15 @@ export class CartillaComponent implements OnInit {
   ngOnInit(): void {
     this.mesaName = localStorage.getItem('mesa');
 
-    this.cartillaService.setCurrentTab = this.route.snapshot.paramMap.get("selectedTab") ?? 'carta';
+    this.cartillaService.setCurrentTab = 'lista';
+
 
     this.loginService.isUserLogged.subscribe((isUserLogged: boolean) => {
       this.isBuyer = isUserLogged && (localStorage.getItem('currentTableService')==null? false : true);
 
-      if (localStorage.getItem('currentMesa')) {
-        let mesaData: Table = JSON.parse(localStorage.getItem('currentMesa') ?? '');
-        this.image = mesaData.tenant.businessConfig.logo;
-
-        this.cartillaService.getCurrentTab.subscribe(tab => {
-          this.selectedTab = tab;
+      this.cartillaService.getCurrentTab.subscribe(tab => {
+        this.selectedTab = tab;
         });
-      }
     });
 
 
