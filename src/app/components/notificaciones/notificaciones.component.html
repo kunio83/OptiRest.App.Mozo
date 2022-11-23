@@ -2,24 +2,26 @@
 <div class="main-content">
   <div class="container-fluid">
       <div class="card">
-          <div class="card-header card-header-danger">
-              <h3 class="card-title">Notificaciones</h3>
-              <p class="card-category">OptiRest - El Rey del Churro</p>
+          <div class="card-header card-header-danger" style="background-color:black; color:white; font-size: 20px;">
+              <p class="card-category">Notificaciones</p>
           </div>
           <div class="card-body">
               <div class="row">
-                  <div class="col-md-6">
-                      <h4 class="card-title">Notificaciones</h4>
+                  <div class="col-md-12">
                       <div class="alert alert-info alert-with-icon " data-notify="container" *ngFor="let notification of notifications" [class.readed]="notification.readed" [class.unreaded]="!notification.readed" (click)="setNotificationReaded(notification)">
-                          <i class="material-icons" data-notify="icon" [hidden]="notification.readed">add_alert</i>
-                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                              <i class="material-icons" (click)="deleteNotification(notification)">close</i>
-                          </button>
-                          <p>{{ notification.date | date:'hh:mm:ss dd/MM/yy' }}</p>
-                          <span data-notify="message">{{ notification.description }}</span>
+                          <span class="material-symbols-outlined" [hidden]="notification.readed">
+                            notifications_active
+                            </span>
+                            <p>{{ notification.date | date:'hh:mm:ss dd/MM/yy' }}</p>
+                            <span data-notify="message">{{ notification.description }}</span>
+                          <button mat-button type="button" class="close" data-dismiss="alert" aria-label="Close" style="position: absolute; right: 10px; top: 10px;"> 
+                              <span class="material-symbols-outlined" (click)="deleteNotification(notification)">
+                                task_alt
+                                </span>
+                          </button>      
                       </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-12">
                   </div>
               </div>
           </div>
