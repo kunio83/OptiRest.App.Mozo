@@ -7,9 +7,9 @@ import { Tenant } from "src/app/models/tenant";
 export const environment = {
   production: false,
   urlApiBase: 'https://optirestapi-v1.azurewebsites.net/api/',
-  //urlNotificationsHub: 'https://optirestnotifications.azurewebsites.net/'
+  urlNotificationsHub: 'https://optirestnotifications.azurewebsites.net/',
   //  urlApiBase: 'https://localhost:7146/api/'  //local
-  urlNotificationsHub: 'https://localhost:5001/',
+  //urlNotificationsHub: 'https://localhost:5001/',
   tenantId: 2
 };
 
