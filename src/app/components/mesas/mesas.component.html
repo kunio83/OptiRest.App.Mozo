@@ -43,44 +43,42 @@
                 <ng-template #Libre>
                     <a href="javascript:;">
                         <div class="row align-items-center rowdat my-1 mesalibre">
-                            <form (submit)="abrirMesa(serv)">
-                                <div class="col-3 coliconm bordleftround"><span
-                                        class="material-symbols-outlined icgde py-2">
-                                        table_bar
-                                    </span> {{ serv.mesaName }}
-                                </div>
-
-
-                                <div class="col-4">
                             
-                                        <div class="row">
-                                            <div class="col">
-                                                <label>Comensales</label>
-                                                <div>
-                                                    <input type="number" min="1" value="2" class="form-control"
-                                                        id="comensales" name="comensales">
-                                                </div>
-                                            </div>
-                                            <div class="col">
-                                                <button type="submit" class="btn btn-success btn-sm"
-                                                    style="margin-top: 14px;">
-                                                    Abrir Mesa
-                                                </button>
+                            <div class="col-3 coliconm bordleftround"><span
+                                    class="material-symbols-outlined icgde py-2">
+                                    table_bar
+                                </span> {{ serv.mesaName }}
+                            </div>
+
+                            <!--
+                            <div>
+                                <form (submit)="abrirMesa(serv)">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label>Comensales</label>
+                                            <div>
+                                                <input type="number" min="1" value="2" class="form-control"
+                                                    id="comensales" name="comensales">
                                             </div>
                                         </div>
-                                    
-                                </div>
-                                <!--
-                                <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2">
-                                        history_toggle_off
-                                    </span>Libre
-                                </div>-->
-                                <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2">
-                                        import_contacts
-                                    </span><strong>Abrir
-                                    </strong>
-                                </div>
-                            </form>
+                                        <div class="col">
+                                            <button type="submit" class="btn btn-success btn-sm"
+                                                style="margin-top: 14px;">
+                                                Abrir Mesa
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>-->
+                            <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2">
+                                    history_toggle_off
+                                </span>Libre
+                            </div>
+                            <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2">
+                                    import_contacts
+                                </span><strong>Abrir
+                                </strong>
+                            </div>
                         </div>
                     </a>
                 </ng-template>
