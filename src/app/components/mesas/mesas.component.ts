@@ -81,7 +81,8 @@ export class MesasComponent implements OnInit {
         mesaState: mesaState,
         servId: servId,
         servDiners: servDiners,
-        servState: servState
+        servState: servState,
+        servMesa: servMesa
       })
     });
 
@@ -114,6 +115,41 @@ export class MesasComponent implements OnInit {
     });
 
   }
+
+  abrirMesa(serv: any){
+    let comensales = (document.getElementById("comensales") as HTMLInputElement).valueAsNumber;
+
+    let tableService: TableService = new TableService();
+    tableService.tableId = serv.mesaId;
+    tableService.userId = this.currentUser.id;
+    tableService.tenantId = environment.tenantId;
+    tableService.serviceStateId = 1;
+    tableService.dinerUserId = 0;
+    tableService.diners = comensales;
+    tableService.items = [];
+    tableService.serviceStart = new Date();
+
+    this.tableServiceService.postTableService(tableService).subscribe(res => {
+      console.log(res);
+    });
+
+  }
+
+
+  cambiaEstado(servMesa: TableService){
+    servMesa.serviceStateId = 1;
+    this.tableServiceService.putTableService(servMesa).subscribe((result)=>{
+      console.log(result);
+      this.updateTableList();
+    });
+  }
+
+
+
+
+
+
+
 }
 
 

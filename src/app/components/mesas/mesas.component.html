@@ -3,42 +3,79 @@
     <div class="card-body">
         <div class="card-body">
             <ng-container *ngFor="let serv of mesaServList">
-                <ng-container *ngIf ="serv.servState !=0; else Libre">
-                    <a href="javascript:;" (click)="iraMesa(serv.mesaName, serv.servId)">
-                        <div class="row  align-items-center rowdat my-1" [ngClass]="(serv.servState == 1 ? 'servact':
-                (serv.servState == 2 ? 'solmozo': 'solcobro'))">
-                            <div class="col-3 coliconm bordleftround">
-                                <span class="material-symbols-outlined icgde py-2">
-                                    table_bar
+                <ng-container *ngIf="serv.servState !=0; else Libre">
+                    <div style="display:flex">
+                        <div [style.width]="serv.servState ==2? '85%':'100%'">
+                            <a href="javascript:;" (click)="iraMesa(serv.mesaName, serv.servId)">
+
+                                <div class="row  align-items-center rowdat my-1" [ngClass]="(serv.servState == 1 ? 'servact':
+                            (serv.servState == 2 ? 'solmozo': 'solcobro'))">
+                                    <div class="col-3 coliconm bordleftround">
+                                        <span class="material-symbols-outlined icgde py-2">
+                                            table_bar
+                                        </span>
+                                        {{ serv.mesaName }}
+                                    </div>
+                                    <div class="col-3 coliconm">
+                                        <span class="material-symbols-outlined icgde py-2">
+                                            group_add
+                                        </span>
+                                        {{ serv.servDiners }}
+                                    </div>
+                                    <div class="col-6 coliconm2">
+                                        <span class="material-symbols-outlined icgde py-2">
+                                            receipt_long
+                                        </span>
+                                        <span>{{ getStateName(serv.servState) }}</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div *ngIf="serv.servState ==2" style="width:15%; padding-top:10px; padding-left:10px">
+                            <div class="btn" style="padding: 0;" (click)="cambiaEstado(serv.servMesa)">
+                                <span class="material-symbols-outlined" style="font-size:35px">
+                                    check_circle
                                 </span>
-                                {{ serv.mesaName }}
-                            </div>
-                            <div class="col-3 coliconm">
-                                <span class="material-symbols-outlined icgde py-2">
-                                    group_add
-                                </span>
-                                {{ serv.servDiners }}
-                            </div>
-                            <div class="col-6 coliconm2">
-                                <span class="material-symbols-outlined icgde py-2">
-                                    receipt_long
-                                </span>
-                                <span>{{ getStateName(serv.servState) }}</span>
                             </div>
                         </div>
-                    </a>
+                    </div>
                 </ng-container>
                 <ng-template #Libre>
                     <a href="javascript:;">
                         <div class="row align-items-center rowdat my-1 mesalibre">
-                            <div class="col-3 coliconm bordleftround"><span class="material-symbols-outlined icgde py-2">
+                            
+                            <div class="col-3 coliconm bordleftround"><span
+                                    class="material-symbols-outlined icgde py-2">
                                     table_bar
                                 </span> {{ serv.mesaName }}
                             </div>
-                            <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2"> history_toggle_off
+
+                            <!--
+                            <div>
+                                <form (submit)="abrirMesa(serv)">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label>Comensales</label>
+                                            <div>
+                                                <input type="number" min="1" value="2" class="form-control"
+                                                    id="comensales" name="comensales">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit" class="btn btn-success btn-sm"
+                                                style="margin-top: 14px;">
+                                                Abrir Mesa
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>-->
+                            <div class="col-4 coliconm"><span class="material-symbols-outlined icgde py-2">
+                                    history_toggle_off
                                 </span>Libre
                             </div>
-                            <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2"> import_contacts
+                            <div class="col-5 coliconm2"><span class="material-symbols-outlined icgde py-2">
+                                    import_contacts
                                 </span><strong>Abrir
                                 </strong>
                             </div>
