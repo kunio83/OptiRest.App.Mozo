@@ -2,6 +2,7 @@ import { CartillaService } from 'src/app/services/cartilla.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
+import { NotificationService } from 'src/app/services/notificacion.service';
 
 @Component({
   selector: 'app-headeropti',
@@ -11,14 +12,19 @@ import { LoginService } from 'src/app/services/login.service';
 export class HeaderComponent implements OnInit {
   title = 'OptiRest Comensal App';
   rout = this.router.url;
+  cantNotif = 0;
 
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private cartillaService: CartillaService
+    private cartillaService: CartillaService,
+    private notificationService: NotificationService,
     ) {}
 
     ngOnInit() {
+      this.notificationService.getNotifications().subscribe(notifications => {
+          this.cantNotif=notifications.length;
+        });
     }
 
   logOut() {

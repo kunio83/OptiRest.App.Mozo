@@ -29,7 +29,7 @@
         <button type="button" class="btn btn-default" style="color: rgb(0, 0, 0); margin:0px; padding: 0; font-size: 25px;">
           <i-bs class="fa fa-comment-o"></i-bs>
         </button>
-        <span class="badge badge-light">5</span>
+        <span class="badge badge-light" *ngIf="cantNotif > 0">{{ cantNotif }}</span>
       </span>
     </div>
   </div>
